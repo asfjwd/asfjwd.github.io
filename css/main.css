@@ -25,6 +25,9 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
+h1{
+  text-align: center;
+}
 a {
   color: {{ site.link-col }};
 }
@@ -349,13 +352,20 @@ footer .theme-by {
   font-weight: 300;
   margin-bottom: 10px;
 }
-.post-preview .post-meta,
+
+.post-preview .post-meta{
+  position: relative;
+  left: 0%;
+}
 .post-heading .post-meta {
+  position: relative;
+  left: 37.25%;
   color: #808080;
   font-size: 18px;
   font-style: italic;
   margin: 0 0 10px;
 }
+
 .post-preview .post-entry {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
