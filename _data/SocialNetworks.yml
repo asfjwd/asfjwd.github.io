@@ -8,9 +8,9 @@
 #         e.g. "fab fa-github" or "fas fa-rss"
 
 telegram:
-  name: "Telegram"
-   urlTemplate: "https://t.me/{value}"
-   icon: "fab fa-telegram"
+  name: "telegram"
+  urlTemplate: "https://t.me/{value}"
+  icon: "fab fa-telegram"
 
 facebook:
   name: "Facebook"
