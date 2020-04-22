@@ -2,96 +2,96 @@
 # Use the same key you added in _config.yml -> social-network-links.
 # In addition to that you need to specify the following properties:
 #   name: Specify a user-friendly name that will be used as a link title
-#   urlTemplate: Define a URL template. The variable {value} will be replaced
-#                with the value of site.social-network-links.<key>
-#   icon: Specify valid fontawesome icon classes (style + icon),
-#         e.g. "fab fa-github" or "fas fa-rss"
+#   baseURL: Define a base URL which will be combined with the value of
+#            site.social-network-links.<key>
+#   icon: Specify a valid fontawesome icon class
+
+facebook:
+  name: "Facebook"
+  baseURL: "https://www.facebook.com/"
+  icon: "fa-facebook"
+
+github:
+  name: "GitHub"
+  baseURL: "https://github.com/"
+  icon: "fa-github"
 
 telegram:
   name: "Telegram"
   baseURL: "https://t.me/"
   icon: "fa-telegram"
 
-facebook:
-  name: "Facebook"
-  urlTemplate: "https://www.facebook.com/{value}"
-  icon: "fab fa-facebook"
-
-github:
-  name: "GitHub"
-  urlTemplate: "https://github.com/{value}"
-  icon: "fab fa-github"
-
 twitter:
   name: "Twitter"
-  urlTemplate: "https://twitter.com/{value}"
-  icon: "fab fa-twitter"
+  baseURL: "https://twitter.com/"
+  icon: "fa-twitter"
 
 reddit:
   name: "Reddit"
-  urlTemplate: "https://reddit.com/u/{value}"
-  icon: "fab fa-reddit"
+  baseURL: "https://reddit.com/u/"
+  icon: "fa-reddit"
 
 email:
   name: "Email me"
-  urlTemplate: "mailto:{value}"
-  icon: "fas fa-envelope"
+  baseURL: "mailto:"
+  icon: "fa-envelope"
 
 linkedin:
   name: "LinkedIn"
-  urlTemplate: "https://linkedin.com/in/{value}"
-  icon: "fab fa-linkedin"
+  baseURL: "https://linkedin.com/in/"
+  icon: "fa-linkedin"
 
 xing:
   name: "Xing"
-  urlTemplate: "https://www.xing.com/profile/{value}"
-  icon: "fab fa-xing"
+  baseURL: "https://www.xing.com/profile/"
+  icon: "fa-xing"
 
 stackoverflow:
   name: "StackOverflow"
-  urlTemplate: "https://stackoverflow.com/users/{value}"
-  icon: "fab fa-stack-overflow"
+  baseURL: "https://stackoverflow.com/users/"
+  icon: "fa-stack-overflow"
 
 snapchat:
   name: "Snapchat"
-  urlTemplate: "https://www.snapchat.com/add/{value}"
-  icon: "fab fa-snapchat-ghost"
+  baseURL: "https://www.snapchat.com/add/"
+  icon: "fa-snapchat-ghost"
 
 instagram:
   name: "Instagram"
-  urlTemplate: "https://www.instagram.com/{value}"
-  icon: "fab fa-instagram"
+  baseURL: "https://www.instagram.com/"
+  icon: "fa-instagram"
 
 youtube:
   name: "YouTube"
-  urlTemplate: "https://www.youtube.com/{value}"
-  icon: "fab fa-youtube"
+  baseURL: "https://www.youtube.com/"
+  icon: "fa-youtube"
 
 spotify:
   name: "Spotify"
-  urlTemplate: "https://open.spotify.com/user/{value}"
-  icon: "fab fa-spotify"
+  baseURL: "https://open.spotify.com/user/"
+  icon: "fa-spotify"
 
 telephone:
   name: "Phone"
-  urlTemplate: "tel:{value}"
-  icon: "fas fa-phone"
+  baseURL: "tel:"
+  icon: "fa-phone"
 
 rss:
   name: "RSS"
-  icon: "fas fa-rss"
+  baseURL: "{{ '/feed.xml' | relative_url }}"
+  icon: "fa-rss"
 
 steam:
   name: "Steam"
-  urlTemplate: "https://steamcommunity.com/id/{value}"
-  icon: "fab fa-steam"
+  baseURL: "https://steamcommunity.com/id/"
+  icon: "fa-steam"
 
 twitch:
   name: "Twitch"
-  urlTemplate: "https://www.twitch.tv/{value}"
-  icon: "fab fa-twitch"
+  baseURL: "https://www.twitch.tv/"
+  icon: "fa-twitch"
 
 yelp:
   name: "Yelp"
-  urlTemplate: "https://{value}.yelp.com"
-  icon: "fab fa-yelp"
+  baseURL: "https://{{ site.author.yelp }}.yelp.com"
+  icon: "fa-yelp"
