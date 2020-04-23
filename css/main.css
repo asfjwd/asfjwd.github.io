@@ -1,12 +1,12 @@
 ---
 layout: null
 ---
-
 @import url("pygment_highlights.css");
-
+@import "syntax.css";
 /* --- General --- */
 
 body {
+  /*font-family: 'Lora', 'Times New Roman', serif;*/
   font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif; 
   font-size: 20px;
   color: #404040;
@@ -23,6 +23,7 @@ p {
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /*font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif;*/
   font-weight: 800;
 }
 a {
@@ -676,7 +677,9 @@ table tr td :last-child {
 /* --- Code blocks --- */
 
 pre {
-  font-size: 16px;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: 500;
   line-height: 1.5em;
 }
 .highlight pre {
@@ -702,7 +705,7 @@ pre {
   margin: 0;
 }
 .highlight pre.lineno {
-  color: rgba(0,0,0,0.3);
+  color: rgba(117,113,94, 0.8);
   border-radius: 0;
   border-right: 2px solid #444;
 }
