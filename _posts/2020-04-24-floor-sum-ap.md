@@ -9,7 +9,7 @@ comments: true
 published: true
 ---
 
-Recently I was going through the solutions of [this](http://poj.org/problem?id=3495) problem. I was very surprised to see very short solutions of many 
+Recently I was going through the solutions of [this](http://poj.org/problem?id=3495) problem. I was very surprised to see the short solutions of many 
 Chinese coders and found out that they use a cool trick for solving this kind of problems. But I could not find anything in English on this. So I had to learn everything using Google Translate :triumph: . This is is my attempt on sharing everything I have learned. Let's begin! :smiley:
 
 ## Notations
