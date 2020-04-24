@@ -229,7 +229,11 @@ Like our previous problem, we will again use structure. For any state (a, b, c, 
 
 ### Code
 
-{% highlight cpp linenos %}{% raw %}dat F(long long k1, long long k2, long long a, long long b, long long c, long long n){
+{% highlight cpp linenos %}{% raw %}struct dat{
+  ll F[11][11];
+};
+
+dat F(long long k1, long long k2, long long a, long long b, long long c, long long n){
   if(!a){
     dat ret;
     for(int _k1 = 0; _k1 <= k1 + k2; ++_k1){
