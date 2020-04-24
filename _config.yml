@@ -163,6 +163,10 @@ date_format: "%B %-d, %Y"
 # Output options (more information on Jekyll's site)
 timezone: "Asia/Dacca"
 markdown: kramdown
+kramdown:
+  parse_block_html: true
+  input: GFM
+  syntax_highlighter: rouge
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
 paginate: 5
@@ -256,6 +260,7 @@ prose:
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jemoji
 
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
