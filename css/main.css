@@ -5,6 +5,8 @@ layout: null
 @import "syntax.css";
 /* --- General --- */
 
+@font-face {font-family: "Candara"; src: url("//db.onlinewebfonts.com/t/8daa0f2304ee100fe3888d5b7307e64f.eot"); src: url("//db.onlinewebfonts.com/t/8daa0f2304ee100fe3888d5b7307e64f.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/8daa0f2304ee100fe3888d5b7307e64f.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/8daa0f2304ee100fe3888d5b7307e64f.woff") format("woff"), url("//db.onlinewebfonts.com/t/8daa0f2304ee100fe3888d5b7307e64f.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/8daa0f2304ee100fe3888d5b7307e64f.svg#Candara") format("svg"); }
+
 body {
   /*font-family: 'Lora', 'Times New Roman', serif;*/
   font-family: Candara,Calibri,Segoe,Segoe UI,Optima,Arial,sans-serif; 
