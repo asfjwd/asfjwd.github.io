@@ -44,7 +44,7 @@ Now,
 $$\begin{aligned}
 & y <  \left\lfloor{\dfrac{ax + b}{c}}\right\rfloor  \\ \implies & y + 1 \leq \dfrac{ax + b}{c} \\ \implies &cy + c - b \leq ax \\ \implies & cy + c - b - 1 < ax \\ \implies &  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor < x \end{aligned}$$
 
-Let $m = an + b$,
+Let $m = \left\lfloor{\dfrac{an + b}{c}}\right\rfloor$,
 
 $$\begin{aligned}
 f(a, b, c, n) =& {\sum\limits_{y = 0}^{m - 1} \sum\limits_{x = 0}^{n}}\left[x >  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor\right] \\ =&
