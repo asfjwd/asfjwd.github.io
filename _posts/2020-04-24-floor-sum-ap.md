@@ -28,29 +28,29 @@ Let us denote
 $f(a, b, c, n) = \sum_\limits{x = 0}^{n}  \left\lfloor{\frac{ax + b}{c}}\right\rfloor$.\\
 Consider the case when $a \geq c$ or $ b \geq  c$. Then we have,
 
-$$\begin{aligned}f(a, b, c, n) =&{\sum\limits_{x = 0}^{n}}  \left\lfloor{\frac{ (  \left\lfloor{\frac{a}{c}}\right\rfloor c + (a \bmod c) )x +  \left\lfloor{\frac{b}{c}}\right\rfloor c + (b \bmod c)}{c}}\right\rfloor \\ =& {\sum\limits_{x = 0}^{n}} \left( \left\lfloor{\frac{a}{c}}\right\rfloor x +  \left\lfloor{\frac{b}{c}}\right\rfloor +   \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor \right) \\ =& \frac{n(n + 1)}{2} \left\lfloor{\frac{a}{c}}\right\rfloor + (n + 1) \left\lfloor{\frac{b}{c}}\right\rfloor + f(a \bmod c, b \bmod c, c, n)\end{aligned}$$
+\begin{aligned}f(a, b, c, n) =&{\sum\limits_{x = 0}^{n}}  \left\lfloor{\frac{ (  \left\lfloor{\frac{a}{c}}\right\rfloor c + (a \bmod c) )x +  \left\lfloor{\frac{b}{c}}\right\rfloor c + (b \bmod c)}{c}}\right\rfloor \cr =& {\sum\limits_{x = 0}^{n}} \left( \left\lfloor{\frac{a}{c}}\right\rfloor x +  \left\lfloor{\frac{b}{c}}\right\rfloor +   \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor \right) \cr =& \frac{n(n + 1)}{2} \left\lfloor{\frac{a}{c}}\right\rfloor + (n + 1) \left\lfloor{\frac{b}{c}}\right\rfloor + f(a \bmod c, b \bmod c, c, n)\end{aligned}
 
 Now we just need to find $f(a, b, c, n)$ when $a < c$ and $b < c$.\\
 \\
-We have, $$f(a, b, c, n) = {\sum\limits_{x = 0}^{n}}  \left\lfloor{\frac{ax + b}{c}}\right\rfloor$$\\
-\\
+We have, \begin{aligned}f(a, b, c, n) = {\sum\limits_{x = 0}^{n}}  \left\lfloor{\frac{ax + b}{c}}\right\rfloor\end{aligned}
+
 We can also write it like this,
 
-$$\begin{aligned}f(a, b, c, n) =& {\sum\limits_{x = 0}^{n} \sum\limits_{y = 0}^{  \left\lfloor{\frac{ax + b}{c}}\right\rfloor - 1}} 1 \\ =&
-{\sum\limits_{y = 0}^{  \left\lfloor{\frac{an + b}{c}}\right\rfloor - 1} \sum\limits_{x = 0}^{n}}\left[y <  \left\lfloor{\frac{ax + b}{c}}\right\rfloor \right]\end{aligned}$$
+\begin{aligned}f(a, b, c, n) =& {\sum\limits_{x = 0}^{n} \sum\limits_{y = 0}^{  \left\lfloor{\frac{ax + b}{c}}\right\rfloor - 1}} 1 \cr =&
+{\sum\limits_{y = 0}^{  \left\lfloor{\frac{an + b}{c}}\right\rfloor - 1} \sum\limits_{x = 0}^{n}}\left[y <  \left\lfloor{\frac{ax + b}{c}}\right\rfloor \right]\end{aligned}
 
 Now,
 
-$$\begin{aligned}
-& y <  \left\lfloor{\dfrac{ax + b}{c}}\right\rfloor  \\ \implies & y + 1 \leq \dfrac{ax + b}{c} \\ \implies &cy + c - b \leq ax \\ \implies & cy + c - b - 1 < ax \\ \implies &  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor < x \end{aligned}$$
+\begin{aligned}
+& y <  \left\lfloor{\dfrac{ax + b}{c}}\right\rfloor  \cr \implies & y + 1 \leq \dfrac{ax + b}{c} \cr \implies &cy + c - b \leq ax \cr \implies & cy + c - b - 1 < ax \cr \implies &  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor < x \end{aligned}
 
-Let $m = an + b$,
+Let $m = \left\lfloor{\dfrac{an + b}{c}}\right\rfloor$,
 
-$$\begin{aligned}
-f(a, b, c, n) =& {\sum\limits_{y = 0}^{m - 1} \sum\limits_{x = 0}^{n}}\left[x >  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor\right] \\ =&
-{\sum\limits_{y = 0}^{m - 1}} n -  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor \\ =&
-mn - {\sum\limits_{y = 0}^{m - 1}} \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor \\ =&
-mn - f(c, c - b - 1, a, m - 1)\end{aligned}$$
+\begin{aligned}
+f(a, b, c, n) =& {\sum\limits_{y = 0}^{m - 1} \sum\limits_{x = 0}^{n}}\left[x >  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor\right] \cr =&
+{\sum\limits_{y = 0}^{m - 1}} n -  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor \cr =&
+mn - {\sum\limits_{y = 0}^{m - 1}} \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor \cr =&
+mn - f(c, c - b - 1, a, m - 1)\end{aligned}
 
 Thus we have obtained a recursive function for our problem. For any
 state where $a < c$ and $b < c$, $a$ and $c$ change their positions in
@@ -88,64 +88,49 @@ We will proceed similarly to our previous problem.
 #### Deriving g
 
 -   When $a \geq c$ or $b \geq c$,
-    
-    $$$$
 
-    $$\begin{aligned}g(a, b, c, n) =& {\sum\limits_{x = 0}^{n}} x  \left\lfloor{\frac{ (  \left\lfloor{\frac{a}{c}}\right\rfloor c + (a \bmod c) )x +  \left\lfloor{\frac{b}{c}}\right\rfloor c + (b \bmod c)}{c}}\right\rfloor \\ =& {\sum\limits_{x = 0}^{n}} \left( \left\lfloor{\frac{a}{c}}\right\rfloor x^{2} +  \left\lfloor{\frac{b}{c}}\right\rfloor x +  x \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor \right) \\ =& \frac{n(n + 1)(2n + 1)}{6} \left\lfloor{\frac{a}{c}}\right\rfloor + \frac{n(n + 1)}{2}\left\lfloor{\frac{b}{c}}\right\rfloor + g(a \bmod c, b \bmod c, c, n)\end{aligned}$$
+    \begin{aligned}g(a, b, c, n) =& {\sum\limits_{x = 0}^{n}} x  \left\lfloor{\frac{ (  \left\lfloor{\frac{a}{c}}\right\rfloor c + (a \bmod c) )x +  \left\lfloor{\frac{b}{c}}\right\rfloor c + (b \bmod c)}{c}}\right\rfloor \cr =& {\sum\limits_{x = 0}^{n}} \left( \left\lfloor{\frac{a}{c}}\right\rfloor x^{2} +  \left\lfloor{\frac{b}{c}}\right\rfloor x +  x \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor \right) \cr =& \frac{n(n + 1)(2n + 1)}{6} \left\lfloor{\frac{a}{c}}\right\rfloor + \frac{n(n + 1)}{2}\left\lfloor{\frac{b}{c}}\right\rfloor + g(a \bmod c, b \bmod c, c, n)\end{aligned}
 
 -   When $a < c$ and $b < c$,
 
-    $$\begin{aligned} g(a, b, c, n) =& {\sum\limits_{x = 0}^{n} x\sum\limits_{y = 0}^{ \left\lfloor{\frac{ax + b}{c}}\right\rfloor - 1}} 1 \\ =&
-    {\sum\limits_{y = 0}^{  \left\lfloor{\frac{an + b}{c}}\right\rfloor - 1} \sum\limits_{x = 0}^{n}}\left[y <  \left\lfloor{\frac{ax + b}{c}}\right\rfloor \right]x \\ =& 
-    {\sum\limits_{y = 0}^{m - 1} \sum\limits_{x = 0}^{n}}\left[x >  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor\right]x \end{aligned}$$
+    \begin{aligned} g(a, b, c, n) =& {\sum\limits_{x = 0}^{n} x\sum\limits_{y = 0}^{ \left\lfloor{\frac{ax + b}{c}}\right\rfloor - 1}} 1 \cr =&
+    {\sum\limits_{y = 0}^{  \left\lfloor{\frac{an + b}{c}}\right\rfloor - 1} \sum\limits_{x = 0}^{n}}\left[y <  \left\lfloor{\frac{ax + b}{c}}\right\rfloor \right]x \cr =& 
+    {\sum\limits_{y = 0}^{m - 1} \sum\limits_{x = 0}^{n}}\left[x >  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor\right]x \end{aligned}
 
     Let $z =  \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor$,
 
-    $$\begin{aligned}g(a, b, c, n) =& {\sum\limits_{y = 0}^{m - 1} \sum\limits_{x = 0}^{n}}\left[x > z\right]x \\ =& {\sum\limits_{y = 0}^{m - 1}} {(z + 1) + (z + 2) \ldots (z + (n - z))} \\ =& \frac{1}{2} {\sum\limits_{y = 0}^{m - 1}} {(n + z + 1)(n - z)} \\ =& \frac{1}{2} 
-    {\sum\limits_{y = 0}^{m - 1}} { n(n + 1) -z -z^{2}} \\ =& \frac{mn(n + 1)}{2} - \frac{1}{2} \left({\sum\limits_{y = 0}^{m - 1}} {z}\right) - \frac{1}{2} \left({\sum\limits_{y = 0}^{m - 1}} {z^{2}}\right)\\ =& \frac{mn(n + 1)}{2} - \frac{1}{2} \left({\sum\limits_{y = 0}^{m - 1}} { \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor}\right) - \frac{1}{2} \left({\sum\limits_{y = 0}^{m - 1}} { \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor^{2}}\right)\\ =& \frac{mn(n + 1)}{2} - \frac{1}{2} f(c, c - b - 1, a, m - 1) - \frac{1}{2} h(c, c - b - 1, a, m - 1)\end{aligned}$$
+    \begin{aligned}g(a, b, c, n) =& {\sum\limits_{y = 0}^{m - 1} \sum\limits_{x = 0}^{n}}\left[x > z\right]x \cr =& {\sum\limits_{y = 0}^{m - 1}} {(z + 1) + (z + 2) \ldots (z + (n - z))} \cr =& \frac{1}{2} {\sum\limits_{y = 0}^{m - 1}} {(n + z + 1)(n - z)} \cr =& \frac{1}{2} 
+    {\sum\limits_{y = 0}^{m - 1}} { n(n + 1) -z -z^{2}} \cr =& \frac{mn(n + 1)}{2} - \frac{1}{2} \left({\sum\limits_{y = 0}^{m - 1}} {z}\right) - \frac{1}{2} \left({\sum\limits_{y = 0}^{m - 1}} {z^{2}}\right)\cr =& \frac{mn(n + 1)}{2} - \frac{1}{2} \left({\sum\limits_{y = 0}^{m - 1}} { \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor}\right) - \frac{1}{2} \left({\sum\limits_{y = 0}^{m - 1}} { \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor^{2}}\right)\cr =& \frac{mn(n + 1)}{2} - \frac{1}{2} f(c, c - b - 1, a, m - 1) - \frac{1}{2} h(c, c - b - 1, a, m - 1)\end{aligned}
 
 #### Deriving h
 
 -   When $a \geq c$ or $b \geq c$,
 
-    $$\begin{aligned}
-     h(a, b, c, n) =&
-    {\sum\limits_{x = 0}^{n}}  \left\lfloor{\frac{ (  \left\lfloor{\frac{a}{c}}\right\rfloor c + (a \bmod c) )x +  \left\lfloor{\frac{b}{c}}\right\rfloor c + (b \bmod c)}{c}}\right\rfloor^{2}\\ =&
-    {\sum\limits_{x = 0}^{n}} \left( \left\lfloor{\frac{a}{c}}\right\rfloor x +  \left\lfloor{\frac{b}{c}}\right\rfloor +   \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor\right)^{2}\\ =&
-    {\sum\limits_{x = 0}^{n}}  \left\lfloor{\frac{a}{c}}\right\rfloor^{2}x^{2} +  \left\lfloor{\frac{b}{c}}\right\rfloor^{2} +   \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor^{2} + 2 \left\lfloor{\frac{a}{c}}\right\rfloor \left\lfloor{\frac{b}{c}}\right\rfloor x \\+& 2 \left\lfloor{\frac{b}{c}}\right\rfloor  \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor +  \left\lfloor{\frac{a}{c}}\right\rfloor x \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor \\ =&
-    \frac{n(n + 1)(2n + 1)}{6} \left\lfloor{\frac{a}{c}}\right\rfloor ^{2} + (n + 1) \left\lfloor{\frac{b}{c}}\right\rfloor ^{2} + n(n + 1) \left\lfloor{\frac{a}{c}}\right\rfloor  \left\lfloor{\frac{b}{c}}\right\rfloor + \left({\sum\limits_{x = 0}^{n}} \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor^{2}\right) \\& + \left(2 \left\lfloor{\frac{b}{c}}\right\rfloor{\sum\limits_{x = 0}^{n}} \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor\right)
-     + \left(2 \left\lfloor{\frac{a}{c}}\right\rfloor{\sum\limits_{x = 0}^{n}}x \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor\right) \\=&
-    \frac{n(n + 1)(2n + 1)}{6} \left\lfloor{\frac{a}{c}}\right\rfloor^{2} + (n + 1) \left\lfloor{\frac{b}{c}}\right\rfloor^{2} + n(n + 1) \left\lfloor{\frac{a}{c}}\right\rfloor \left\lfloor{\frac{b}{c}}\right\rfloor + h(a \bmod c, b \bmod c, c, n) \\& + 2 \left\lfloor{\frac{b}{c}}\right\rfloor f(a \bmod c, b \bmod c, c, n)
-     + 2 \left\lfloor{\frac{a}{c}}\right\rfloor g(a \bmod c, b \bmod c, c, n)\end{aligned}$$
+    \begin{aligned}h(a, b, c, n) =& {\sum\limits_{x = 0}^{n}} \left\lfloor{\frac{ (  \left\lfloor{\frac{a}{c}}\right\rfloor c + (a \bmod c) )x +  \left\lfloor{\frac{b}{c}}\right\rfloor c + (b \bmod c)}{c}}\right\rfloor^{2}\cr =& {\sum\limits_{x = 0}^{n}} \left( \left\lfloor{\frac{a}{c}}\right\rfloor x + \left\lfloor{\frac{b}{c}}\right\rfloor +   \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor\right)^{2}\cr =& {\sum\limits_{x = 0}^{n}}  \left\lfloor{\frac{a}{c}}\right\rfloor^{2}x^{2} + \left\lfloor{\frac{b}{c}}\right\rfloor^{2} +   \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor^{2} + 2 \left\lfloor{\frac{a}{c}}\right\rfloor \left\lfloor{\frac{b}{c}}\right\rfloor x \cr +& 2 \left\lfloor{\frac{b}{c}}\right\rfloor  \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor +  \left\lfloor{\frac{a}{c}}\right\rfloor x \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor \cr =&    \frac{n(n + 1)(2n + 1)}{6} \left\lfloor{\frac{a}{c}}\right\rfloor ^{2} + (n + 1) \left\lfloor{\frac{b}{c}}\right\rfloor ^{2} + n(n + 1) \left\lfloor{\frac{a}{c}}\right\rfloor  \left\lfloor{\frac{b}{c}}\right\rfloor + \left({\sum\limits_{x = 0}^{n}} \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor^{2}\right) \cr +& \left(2 \left\lfloor{\frac{b}{c}}\right\rfloor{\sum\limits_{x = 0}^{n}} \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor\right) + \left(2 \left\lfloor{\frac{a}{c}}\right\rfloor{\sum\limits_{x = 0}^{n}}x \left\lfloor{\frac{ (a \bmod c)x + (b \bmod c)}{c}}\right\rfloor\right) \cr =& \frac{n(n + 1)(2n + 1)}{6} \left\lfloor{\frac{a}{c}}\right\rfloor^{2} + (n + 1) \left\lfloor{\frac{b}{c}}\right\rfloor^{2} + n(n + 1) \left\lfloor{\frac{a}{c}}\right\rfloor \left\lfloor{\frac{b}{c}}\right\rfloor + h(a \bmod c, b \bmod c, c, n) \cr +& 2 \left\lfloor{\frac{b}{c}}\right\rfloor f(a \bmod c, b \bmod c, c, n) + 2 \left\lfloor{\frac{a}{c}}\right\rfloor g(a \bmod c, b \bmod c, c, n)\end{aligned}
 
 -   When $a < c$ and $b < c$, \\
     Working with the square term is not easy. So, let's break it down.
 
-    $$\begin{aligned}n^2 = n(n + 1) - n = 2 \left(\sum\limits_{i = 0}^{n - 1} i + 1\right) - n\end{aligned}$$
+    \begin{aligned}n^2 = n(n + 1) - n = 2 \left(\sum\limits_{i = 0}^{n - 1} i + 1\right) - n\end{aligned}
 
     Using this we get,
 
-    $$\begin{aligned}
-    h(a, b, c, n) =& {\sum\limits_{x = 0}^{n}}  \left\lfloor{\frac{ax + b}{c}}\right\rfloor^{2}\\ =&
-    {\sum\limits_{x = 0}^{n}} \left(2{\left(\sum\limits_{y = 0}^{ \left\lfloor{\frac{ax + b}{c}}\right\rfloor - 1} y + 1\right)} -  \left\lfloor{\frac{ax + b}{c}}\right\rfloor\right)\\ =&
-    \left(2{\sum\limits_{x = 0}^{n}\sum\limits_{y = 0}^{m - 1}} (y + 1)\right) - f(a, b, c, n) \end{aligned}$$
+    \begin{aligned}
+    h(a, b, c, n) =& {\sum\limits_{x = 0}^{n}}  \left\lfloor{\frac{ax + b}{c}}\right\rfloor^{2}\cr =& {\sum\limits_{x = 0}^{n}} \left(2{\left(\sum\limits_{y = 0}^{ \left\lfloor{\frac{ax + b}{c}}\right\rfloor - 1} y + 1\right)} -  \left\lfloor{\frac{ax + b}{c}}\right\rfloor\right)\cr =& \left(2{\sum\limits_{x = 0}^{n}\sum\limits_{y = 0}^{m - 1}} (y + 1)\right) - f(a, b, c, n) \end{aligned}
 
     Now,
 
-    $$\begin{aligned}
-    {\sum\limits_{x = 0}^{n}\sum\limits_{y = 0}^{m - 1} y + 1} =& {\sum\limits_{y = 0}^{m - 1} (y + 1)\sum\limits_{x = 0}^{n}} \left[ x > z \right]\\ =&
-    {\sum\limits_{y = 0}^{m - 1}} (y + 1) (n - z)\\ =&
-    \left({\sum\limits_{y = 0}^{m - 1}}(y + 1)n\right) - \left({\sum\limits_{y = 0}^{m - 1}}yz\right) - \left({\sum\limits_{y = 0}^{m - 1}}z\right) \\ =& \left({\sum\limits_{y = 0}^{m - 1}}(y + 1)n\right) - \left({\sum\limits_{y = 0}^{m - 1}}y \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor \right) - \left({\sum\limits_{y = 0}^{m - 1}} \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor\right) \\ =&
-    \frac{mn(m + 1)}{2} - g(c, c - b - 1, a, m - 1) - f(c, c - b - 1, a, m - 1)\end{aligned}$$
+    \begin{aligned}
+    {\sum\limits_{x = 0}^{n}\sum\limits_{y = 0}^{m - 1} y + 1} =& {\sum\limits_{y = 0}^{m - 1} (y + 1)\sum\limits_{x = 0}^{n}} \left[ x > z \right]\cr =&{\sum\limits_{y = 0}^{m - 1}} (y + 1) (n - z)\cr =&\left({\sum\limits_{y = 0}^{m - 1}}(y + 1)n\right) - \left({\sum\limits_{y = 0}^{m - 1}}yz\right) - \left({\sum\limits_{y = 0}^{m - 1}}z\right) \cr =& \left({\sum\limits_{y = 0}^{m - 1}}(y + 1)n\right) - \left({\sum\limits_{y = 0}^{m - 1}}y \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor \right) - \left({\sum\limits_{y = 0}^{m - 1}} \left\lfloor{\dfrac{cy + c -b - 1}{a}}\right\rfloor\right) \cr =& \frac{mn(m + 1)}{2} - g(c, c - b - 1, a, m - 1) - f(c, c - b - 1, a, m - 1)\end{aligned}
 
     Finally,
-    $$\begin{aligned} h(a, b, c, n) = mn(m + 1) - 2g(c, c - b - 1, a, m - 1) - 2f(c, c - b - 1, a, m - 1) - f(a, b, c, n) \end{aligned}$$
+    \begin{aligned} h(a, b, c, n) = mn(m + 1) - 2g(c, c - b - 1, a, m - 1) - 2f(c, c - b - 1, a, m - 1) - f(a, b, c, n) \end{aligned}
 
 ### Implementation
   The functions $g$ and $h$ are dependent on each other. So if we naively write three recursive functions there will be too many function calls and the complexity will be huge. Notice that the calls to the next state of all the functions are similar. So, we can use structure instead. For every state we will calculate the three functions simultaneously, save them in a structure and return the structure. This way we don't have to call the functions over and over again.
 
 ### Complexity 
-$$\mathcal{O}\left(3log(a)\right)$$
+$\mathcal{O}\left(3log(a)\right)$
 <!-- <center>$$\mathcal{O}\left(3log(a)\right)$$</center> -->
 
 ### Code
@@ -192,34 +177,33 @@ Let us denote $F({k_{1} }, k_{2}, a, b, c, n) = {\sum\limits_{x = 0}^{n} } x^{k_
 
 -   When $a \geq c$,
 
-    $$\begin{aligned}F({k_{1} }, k_{2}, a, b, c, n) =& {\sum\limits_{x = 0}^{n} } x^{k_{1} }  \left\lfloor{\frac{ax + b}{c} } \right\rfloor^{k_{2} } \\ =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } \left(  \left\lfloor{\frac{a}{c} } \right\rfloor x +  \left\lfloor{\frac{ (a \bmod c) x + b}{c} } \right\rfloor \right)^{k_{2} } \\ =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y} \left(  \left\lfloor{\frac{a}{c} } \right\rfloor x\right)^{y} \left\lfloor{\frac{ (a \bmod c) x + b}{c} } \right\rfloor^{ {k_{2} } - y} \\ =& {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y}  \left\lfloor{\frac{a}{c} } \right\rfloor^{y} {\sum\limits_{x = 0}^{n} } x^{ {k_{1} } + y} \left\lfloor{\frac{ (a \bmod c) x + b}{c} } \right\rfloor^{ {k_{2} } - y} \\ =& {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y}  \left\lfloor{\frac{a}{c} } \right\rfloor^{y} F({k_{1} } + y, k_{2} - y, a \bmod c, b, c, n) \end{aligned}$$
+    \begin{aligned}F({k_{1} }, k_{2}, a, b, c, n) =& {\sum\limits_{x = 0}^{n} } x^{k_{1} }  \left\lfloor{\frac{ax + b}{c} } \right\rfloor^{k_{2} } \cr =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } \left(  \left\lfloor{\frac{a}{c} } \right\rfloor x +  \left\lfloor{\frac{ (a \bmod c) x + b}{c} } \right\rfloor \right)^{k_{2} } \cr =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y} \left(  \left\lfloor{\frac{a}{c} } \right\rfloor x\right)^{y} \left\lfloor{\frac{ (a \bmod c) x + b}{c} } \right\rfloor^{ {k_{2} } - y} \cr =& {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y}  \left\lfloor{\frac{a}{c} } \right\rfloor^{y} {\sum\limits_{x = 0}^{n} } x^{ {k_{1} } + y} \left\lfloor{\frac{ (a \bmod c) x + b}{c} } \right\rfloor^{ {k_{2} } - y} \cr =& {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y}  \left\lfloor{\frac{a}{c} } \right\rfloor^{y} F({k_{1} } + y, k_{2} - y, a \bmod c, b, c, n) \end{aligned}
 
 -   When $b \geq c$ and $a < c$,
 
-    $$\begin{aligned}
-        F({k_{1} }, k_{2}, a, b, c, n) =& {\sum\limits_{x = 0}^{n} } x^{k_{1} }  \left\lfloor{\frac{ax + b}{c} } \right\rfloor^{k_{2} } \\ =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } \left(  \left\lfloor{\frac{b}{c} } \right\rfloor +  \left\lfloor{\frac{ ax + (b \bmod c)}{c} } \right\rfloor\right)^{k_{2} } \\ =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y} \left(  \left\lfloor{\frac{b}{c} } \right\rfloor\right)^{y} \left\lfloor{\frac{ ax + (b \bmod c)}{c} } \right\rfloor^{ {k_{2} } - y} \\ =& {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y}  \left\lfloor{\frac{b}{c} } \right\rfloor^{y} {\sum\limits_{x = 0}^{n} } x^{ {k_{1} }} \left\lfloor{\frac{ ax + (b \bmod c)}{c} } \right\rfloor^{ {k_{2} } - y} \\ =& {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y}  \left\lfloor{\frac{b}{c} } \right\rfloor^{y} F({k_{1} }, k_{2} - y, a, b \bmod c, c, n) \\
-      \end{aligned}$$
+    \begin{aligned}
+        F({k_{1} }, k_{2}, a, b, c, n) =& {\sum\limits_{x = 0}^{n} } x^{k_{1} }  \left\lfloor{\frac{ax + b}{c} } \right\rfloor^{k_{2} } \cr =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } \left(  \left\lfloor{\frac{b}{c} } \right\rfloor +  \left\lfloor{\frac{ ax + (b \bmod c)}{c} } \right\rfloor\right)^{k_{2} } \cr =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y} \left(  \left\lfloor{\frac{b}{c} } \right\rfloor\right)^{y} \left\lfloor{\frac{ ax + (b \bmod c)}{c} } \right\rfloor^{ {k_{2} } - y} \cr =& {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y}  \left\lfloor{\frac{b}{c} } \right\rfloor^{y} {\sum\limits_{x = 0}^{n} } x^{ {k_{1} }} \left\lfloor{\frac{ ax + (b \bmod c)}{c} } \right\rfloor^{ {k_{2} } - y} \cr =& {\sum\limits_{y = 0}^{k_{2} }} \binom{k_{2} }{y}  \left\lfloor{\frac{b}{c} } \right\rfloor^{y} F({k_{1} }, k_{2} - y, a, b \bmod c, c, n) \\
+      \end{aligned}
 
 -   When $a < c$ and $b < c$,\\
     Notice that, we can write $x^n$ as,
 
-    $$\begin{aligned}x^n = \sum\limits_{i = 0}^{x - 1} \left(i + 1\right)^n - i^n \end{aligned}$$
+    \begin{aligned}x^n = \sum\limits_{i = 0}^{x - 1} \left(i + 1\right)^n - i^n \end{aligned}
 
     Now,
 
-    $$\begin{aligned}
-        F({k_{1} }, k_{2}, a, b, c, n) =& {\sum\limits_{x = 0}^{n} } x^{k_{1} }  \left\lfloor{\frac{ax + b}{c} } \right\rfloor^{k_{2} } \\ =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } {\sum\limits_{y = 0}^{m - 1} }\left[y <  \left\lfloor{\frac{ax + b}{c} } \right\rfloor\right]\left(y + 1\right)^{k_{2} } - y^{k_{2} } \\ =& {\sum\limits_{y = 0}^{m - 1} }\left(\left(y + 1\right)^{k_{2} } - y^{k_{2} }\right) {\sum\limits_{x = 0}^{n} } x^{k_{1} } \left[x > z\right] \\ =& {\sum\limits_{y = 0}^{m - 1} }\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i} y^{i} \left({\sum\limits_{x = 0}^{n} } x^{k_{1} } - \sum\limits_{x = 0}^{z} x^{k_{1} }z\right) \\ =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{y = 0}^{m - 1} } y^{i} \left(S_{ {k_{1} }}(n) - S_{ {k_{1} }}(z)\right) \\ =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i} }S_{i}(m - 1) S_{ {k_{1} }}(n) - {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{y = 0}^{m - 1} } y^{i} S_{ {k_{1} }}(z)
-      \end{aligned}$$
+    \begin{aligned}
+        F({k_{1} }, k_{2}, a, b, c, n) =& {\sum\limits_{x = 0}^{n} } x^{k_{1} }  \left\lfloor{\frac{ax + b}{c} } \right\rfloor^{k_{2} } \cr =& {\sum\limits_{x = 0}^{n} } x^{k_{1} } {\sum\limits_{y = 0}^{m - 1} }\left[y <  \left\lfloor{\frac{ax + b}{c} } \right\rfloor\right]\left(y + 1\right)^{k_{2} } - y^{k_{2} } \cr =& {\sum\limits_{y = 0}^{m - 1} }\left(\left(y + 1\right)^{k_{2} } - y^{k_{2} }\right) {\sum\limits_{x = 0}^{n} } x^{k_{1} } \left[x > z\right] \cr =& {\sum\limits_{y = 0}^{m - 1} }\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i} y^{i} \left({\sum\limits_{x = 0}^{n} } x^{k_{1} } - \sum\limits_{x = 0}^{z} x^{k_{1} }z\right) \cr =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{y = 0}^{m - 1} } y^{i} \left(S_{ {k_{1} }}(n) - S_{ {k_{1} }}(z)\right) \cr =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i} }S_{i}(m - 1) S_{ {k_{1} }}(n) - {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{y = 0}^{m - 1} } y^{i} S_{ {k_{1} }}(z) \end{aligned}
 
     $S_{k}(n)$ is a $k + 1$th degree [polynomial function](https://en.wikipedia.org/wiki/Faulhaber%27s_formula) of $n$, ie.
 
-    $$\begin{aligned}S_{k}(n) = \sum\limits_{i = 0}^{n} i^{k} = \sum\limits_{i = 0}^{k + 1} d_{ {k} {i} } \times n^{i}\end{aligned}$$
+    \begin{aligned}S_{k}(n) = \sum\limits_{i = 0}^{n} i^{k} = \sum\limits_{i = 0}^{k + 1} d_{ {k} {i} } \times n^{i}\end{aligned}
 
     We can calculate this polynomial using [Lagrange polynomial](https://en.wikipedia.org/wiki/Lagrange_polynomial) or
     [Bernoulli numbers](https://en.wikipedia.org/wiki/Bernoulli_number#Sum_of_powers). So, we can easily calculate the first part of our
     equation. For the second part,
 
-    $$\begin{aligned}{\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{y = 0}^{m- 1} } y^{i} S_{ {k_{1} }}(z) =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{y = 0}^{m - 1} } y^{i} \sum\limits_{j = 0}^{ {k_{1} } + 1} d_{ {k_{1} }{j} } \times z^{j} \\ =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{j = 0}^{ {k_{1} } + 1} d_{ {k_{1} }{j} }\sum\limits_{y = 0}^{m - 1} } y^{i} \times  \left\lfloor{\frac{cy + c - b - 1}{a} } \right\rfloor^{j} \\ =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{j = 0}^{ {k_{1} } + 1} d_{ {k_{1} }{j} }} \times F(i, j, c, c - b - 1, a, m - 1)\end{aligned}$$
+    \begin{aligned}{\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{y = 0}^{m- 1} } y^{i} S_{ {k_{1} }}(z) =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{y = 0}^{m - 1} } y^{i} \sum\limits_{j = 0}^{ {k_{1} } + 1} d_{ {k_{1} }{j} } \times z^{j} \cr =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{j = 0}^{ {k_{1} } + 1} d_{ {k_{1} }{j} }\sum\limits_{y = 0}^{m - 1} } y^{i} \times  \left\lfloor{\frac{cy + c - b - 1}{a} } \right\rfloor^{j} \cr =& {\sum\limits_{i = 0}^{k_{2} - 1}\binom{k_{2} }{i}\sum\limits_{j = 0}^{ {k_{1} } + 1} d_{ {k_{1} }{j} }} \times F(i, j, c, c - b - 1, a, m - 1)\end{aligned}
 
     We can solve this by precomputing $d_{ {k}{j} }$ for all possible $k$.
 
