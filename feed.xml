@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asif Jawad</title>
+    <description>Personal Blog</description>
+    <link>https://asfjwd.github.io/</link>
+    <atom:link href="https://asfjwd.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Floor Sum of Arithmetic Progression and Other Variants</title>
+        <description>
+          
+          Recently I was going through the solutions of this problem. I was very surprised to see the short solutions of many Chinese coders and found out that they use a cool trick for solving this kind of problems. But I could not find anything in English on this. So I...
+        </description>
+        <pubDate>Fri, 24 Apr 2020 00:00:00 +0600</pubDate>
+        <link>https://asfjwd.github.io/2020-04-24-floor-sum-ap/</link>
+        <guid isPermaLink="true">https://asfjwd.github.io/2020-04-24-floor-sum-ap/</guid>
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,36 @@
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.profile-photo {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-details h2,
+.profile-details h4 {
+  margin: 0 0 8px;
+}
+
+.not-found {
+  text-align: center;
+}
+
+.not-found img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media print, screen and (max-width: 480px) {
+  .profile {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

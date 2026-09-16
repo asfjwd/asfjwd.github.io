@@ -1,0 +1,31 @@
+code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  background: none;
+  font-size: 85%;
+}
+
+figure.highlight > pre,
+div.highlighter-rouge pre {
+  position: relative;
+}
+
+.copy-code-button {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  color: #555;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.copy-code-button:hover {
+  background: #f0f0f0;
+}
