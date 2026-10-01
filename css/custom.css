@@ -25,6 +25,19 @@
   margin: 0 0 20px;
 }
 
+.research-interests {
+  list-style: none;
+  padding: 0;
+}
+
+.research-interests li + li {
+  margin-top: 12px;
+}
+
+.research-interests strong {
+  display: block;
+}
+
 .not-found {
   text-align: center;
 }
