@@ -1,3 +1,193 @@
+.theme-switch {
+  display: flex;
+  justify-content: flex-end;
+  margin: -20px 0 24px;
+}
+
+.theme-toggle {
+  align-items: center;
+  border: 1px solid #d7dfe7;
+  background: #f5f7f9;
+  color: #393939;
+  cursor: pointer;
+  display: flex;
+  height: 38px;
+  justify-content: center;
+  padding: 0;
+  width: 38px;
+  border-radius: 50%;
+}
+
+.theme-toggle svg {
+  height: 20px;
+  width: 20px;
+}
+
+.theme-toggle:hover {
+  background: #e9eef3;
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #267cb9;
+  outline-offset: 2px;
+}
+
+html[data-theme="dark"] .theme-icon-dark,
+html:not([data-theme="dark"]) .theme-icon-light {
+  display: none;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] body {
+  background: #1d1f1e;
+  color: #cbd0cc;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6,
+html[data-theme="dark"] strong {
+  color: #f2f3ee;
+}
+
+html[data-theme="dark"] a {
+  color: #9bd8cb;
+}
+
+html[data-theme="dark"] a:hover,
+html[data-theme="dark"] a:focus {
+  color: #c6f0e4;
+}
+
+html[data-theme="dark"] a small,
+html[data-theme="dark"] a:hover small {
+  color: #b6c0ba;
+}
+
+html[data-theme="dark"] hr {
+  background: #414844;
+}
+
+html[data-theme="dark"] blockquote {
+  border-color: #414844;
+}
+
+html[data-theme="dark"] code,
+html[data-theme="dark"] pre {
+  color: #e5eae4;
+}
+
+html[data-theme="dark"] pre,
+html[data-theme="dark"] .highlight {
+  background: #272b29;
+  border-color: #414844;
+}
+
+html[data-theme="dark"] th,
+html[data-theme="dark"] td {
+  border-color: #414844;
+}
+
+html[data-theme="dark"] th,
+html[data-theme="dark"] dt {
+  color: #e5eae4;
+}
+
+html[data-theme="dark"] kbd {
+  background: #2b302d;
+  border-color: #57625b;
+  color: #e5eae4;
+}
+
+html[data-theme="dark"] .theme-toggle {
+  background: #2b302d;
+  border-color: #57625b;
+  color: #e5eae4;
+}
+
+html[data-theme="dark"] .theme-toggle:hover {
+  background: #39423c;
+}
+
+html[data-theme="dark"] .theme-toggle:focus-visible {
+  outline-color: #9bd8cb;
+}
+
+html[data-theme="dark"] .highlight span {
+  color: #e5eae4;
+  background: transparent;
+}
+
+html[data-theme="dark"] .highlight .c,
+html[data-theme="dark"] .highlight .c1,
+html[data-theme="dark"] .highlight .cd,
+html[data-theme="dark"] .highlight .cm,
+html[data-theme="dark"] .highlight .cp,
+html[data-theme="dark"] .highlight .cs {
+  color: #aebbb2;
+}
+
+html[data-theme="dark"] .highlight .k,
+html[data-theme="dark"] .highlight .kc,
+html[data-theme="dark"] .highlight .kd,
+html[data-theme="dark"] .highlight .kn,
+html[data-theme="dark"] .highlight .kp,
+html[data-theme="dark"] .highlight .kr,
+html[data-theme="dark"] .highlight .kt,
+html[data-theme="dark"] .highlight .kv,
+html[data-theme="dark"] .highlight .o,
+html[data-theme="dark"] .highlight .ow {
+  color: #d9c0f4;
+}
+
+html[data-theme="dark"] .highlight .s,
+html[data-theme="dark"] .highlight .s1,
+html[data-theme="dark"] .highlight .s2,
+html[data-theme="dark"] .highlight .sb,
+html[data-theme="dark"] .highlight .sc,
+html[data-theme="dark"] .highlight .sd,
+html[data-theme="dark"] .highlight .se,
+html[data-theme="dark"] .highlight .sh,
+html[data-theme="dark"] .highlight .si,
+html[data-theme="dark"] .highlight .sr,
+html[data-theme="dark"] .highlight .ss,
+html[data-theme="dark"] .highlight .sx {
+  color: #f0bf9f;
+}
+
+html[data-theme="dark"] .highlight .m,
+html[data-theme="dark"] .highlight .mb,
+html[data-theme="dark"] .highlight .mf,
+html[data-theme="dark"] .highlight .mh,
+html[data-theme="dark"] .highlight .mi,
+html[data-theme="dark"] .highlight .mo,
+html[data-theme="dark"] .highlight .mx,
+html[data-theme="dark"] .highlight .il {
+  color: #a8dcb8;
+}
+
+html[data-theme="dark"] .highlight .nc,
+html[data-theme="dark"] .highlight .nf,
+html[data-theme="dark"] .highlight .nt {
+  color: #b4d5e6;
+}
+
+html[data-theme="dark"] .copy-code-button {
+  background: #2b302d;
+  border-color: #57625b;
+  color: #e5eae4;
+}
+
+html[data-theme="dark"] .copy-code-button:hover {
+  background: #39423c;
+}
+
 .profile {
   display: flex;
   align-items: center;
@@ -47,10 +237,56 @@
   height: auto;
 }
 
-@media print, screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {
+  .theme-switch {
+    margin: 0 0 24px;
+  }
+
   .profile {
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
+  }
+}
+
+@media print {
+  .theme-switch {
+    display: none;
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: light;
+  }
+
+  html[data-theme="dark"] body {
+    background: #fff;
+    color: #444;
+  }
+
+  html[data-theme="dark"] h1,
+  html[data-theme="dark"] h2,
+  html[data-theme="dark"] h3,
+  html[data-theme="dark"] h4,
+  html[data-theme="dark"] h5,
+  html[data-theme="dark"] h6,
+  html[data-theme="dark"] strong,
+  html[data-theme="dark"] th,
+  html[data-theme="dark"] dt {
+    color: #222;
+  }
+
+  html[data-theme="dark"] a {
+    color: #267cb9;
+  }
+
+  html[data-theme="dark"] code,
+  html[data-theme="dark"] pre,
+  html[data-theme="dark"] .highlight span {
+    color: #333;
+  }
+
+  html[data-theme="dark"] pre,
+  html[data-theme="dark"] .highlight {
+    background: #f8f8f8;
   }
 }
